@@ -1,0 +1,13 @@
+#! /usr/bin/env bash
+
+RUBY_VERSION='2.0.0-p247' #1.9.3-p448
+
+rbenv versions | grep -q $RUBY_VERSION > /dev/null
+
+if [ $? -eq 0 ] ; then
+  echo "ruby $RUBY_VERSION is installed."
+else
+  rbenv install $RUBY_VERSION
+fi
+
+rbenv global $RUBY_VERSION

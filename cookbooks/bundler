@@ -1,0 +1,10 @@
+#! /usr/bin/env bash
+
+gem list | grep -q bundler > /dev/null
+
+if [ $? -eq 0 ] ; then
+  echo 'bundler is installed.'
+else
+  gem install bundler
+fi
+

@@ -1,0 +1,12 @@
+*.build
+*.changes
+*.deb
+*.dsc
+*.changes
+*.log
+*.substvars
+*.tar.gz
+src/build
+src/rubinius
+src/debian/rubinius
+tmp

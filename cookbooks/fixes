@@ -1,0 +1,25 @@
+#! /usr/bin/env bash
+
+if ! grep -q 'LC_ALL' ~/.bash_profile ; then
+  echo 'export LC_ALL="$LANG"'    >> ~/.bash_profile
+  echo 'export LC_CTYPE="$LANG"'  >> ~/.bash_profile
+  echo ''                         >> ~/.bash_profile
+
+  source ~/.bash_profile
+  locale
+fi
+
+if ! grep -q 'lla' ~/.bash_profile ; then
+  echo 'alias ll="ls -lh --color"'  >> ~/.bash_profile
+  echo 'alias lla="ll -a"'          >> ~/.bash_profile
+  echo ''                           >> ~/.bash_profile
+fi
+
+if [ -z "$DEBFULLNAME" ] ; then
+  echo 'export DEBFULLNAME="Marcelo Pinheiro"'  >> ~/.bash_profile
+fi
+
+if [ -z "$DEBEMAIL" ] ; then
+  echo 'export DEBEMAIL="salizzar@gmail.com"'   >> ~/.bash_profile
+fi
+

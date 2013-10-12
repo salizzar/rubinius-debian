@@ -1,0 +1,16 @@
+Source: rubinius
+Section: ruby
+Priority: extra
+Maintainer: Marcelo Pinheiro <salizzar@gmail.com>
+Build-Depends: debhelper (>= 8.0.0)
+Standards-Version: 3.9.3
+Homepage: http://rubini.us
+
+Package: rubinius
+Architecture: amd64
+Depends: libstdc++6, libc6, libffi5, libgcc1, libyaml-dev
+Conflicts: ruby, ruby-dev
+Description: Rubinius, an implementation of Ruby
+ An implementation of Ruby designed for concurrency using
+ native threads to run Ruby code on all the CPU cores.
+

@@ -1,0 +1,13 @@
+#! /usr/bin/env bash
+
+apt-get update > /dev/null
+
+apt-get install --yes --force-yes bison git build-essential llvm curl
+apt-get install --yes --force-yes zlib1g-dev libssl-dev libyaml-dev libreadline-dev libncurses5-dev libyaml-dev
+apt-get install --yes --force-yes dh-make dpkg-dev devscripts
+
+su - vagrant -c "cd /vagrant ; bash cookbooks/fixes"
+su - vagrant -c "cd /vagrant ; bash cookbooks/rbenv"
+su - vagrant -c "cd /vagrant ; bash cookbooks/ruby"
+su - vagrant -c "cd /vagrant ; bash cookbooks/bundler"
+
