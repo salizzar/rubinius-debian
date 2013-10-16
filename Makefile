@@ -6,20 +6,25 @@ PKGDIR    := $(SRCDIR)/build
 BUILDDIR  := $(SRCDIR)/rubinius
 
 RUBINIUS_VERSION  := rubinius-2.0.0
-RUBINIUS_PKG      := $(RUBINIUS_VERSION).tar.bz2
+RUBINIUS_PKG      := rubinius.tar.gz
 
-download:
-	cd $(TMPDIR) ; curl -O http://releases.rubini.us/$(RUBINIUS_PKG)
+download-stable:
+	rm -rf $(TMPDIR) ; mkdir -p $(TMPDIR)
+	cd $(TMPDIR) ; curl -o rubinius.tar.bz2 http://releases.rubini.us/$(RUBINIUS_VERSION).tar.bz2 ; bunzip2 -c < rubinius.tar.bz2 | gzip -c > $(RUBINIUS_PKG)
+
+download-head:
+	rm -rf $(TMPDIR) ; mkdir -p $(TMPDIR)
+	cd $(TMPDIR) ; curl -o rubinius.tar.gz -L https://github.com/rubinius/rubinius/archive/master.tar.gz
 
 clean:
 	rm -f $(ROOTDIR)/*.{build,changes,deb,dsc,tar.gz}
-	rm -rf $(BUILDDIR) $(PKGDIR)
+	rm -rf $(BUILDDIR)/rubinius* $(SRCDIR)/rubinius*
 	sudo rm -rf $(DESTDIR)
 	sudo mkdir -p $(DESTDIR)
 	sudo chown vagrant. $(DESTDIR)
 
 extract:
-	cd $(TMPDIR) ; tar xjvf $(RUBINIUS_PKG) -C $(SRCDIR) ; mv $(SRCDIR)/$(RUBINIUS_VERSION) $(BUILDDIR)
+	cd $(TMPDIR) ; tar xvf $(RUBINIUS_PKG) -C $(SRCDIR) ; mv $(SRCDIR)/rubinius-* $(BUILDDIR)
 
 configure:
 	cd $(BUILDDIR) ; bundle install --path vendor

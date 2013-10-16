@@ -12,11 +12,17 @@ To start and run vagrant machine, type in your terminal (assuming that you have 
     $ git clone git://github.com/salizzar/rubinius-debian.git
     $ vagrant up
 
-To download Rubinius tarball:
+To download Rubinius stable tarball:
 
     $ vagrant ssh
     $ cd /vagrant
-    $ make download
+    $ make download-stable
+
+To download Rubinius HEAD tarball:
+
+    $ vagrant ssh
+    $ cd /vagrant
+    $ make download-head
 
 To configure, compile, install and build Debian package:
 
