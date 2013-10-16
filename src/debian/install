@@ -1,7 +1,7 @@
 build/bin/rbx          opt/rubinius/bin
 build/bin/testrb       opt/rubinius/bin
 build/kernel           opt/rubinius
-build/lib              opt/rubinius
+build/library          opt/rubinius
 build/gems             opt/rubinius
 build/runtime          opt/rubinius
 build/vm/include/capi  opt/rubinius/vm/include
