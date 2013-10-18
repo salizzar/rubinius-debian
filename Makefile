@@ -19,6 +19,7 @@ download-head:
 clean:
 	rm -f $(ROOTDIR)/*.{build,changes,deb,dsc,tar.gz}
 	rm -rf $(BUILDDIR)/rubinius* $(SRCDIR)/rubinius*
+	rm -rf $(PKGDIR)
 	sudo rm -rf $(DESTDIR)
 	sudo mkdir -p $(DESTDIR)
 	sudo chown vagrant. $(DESTDIR)
